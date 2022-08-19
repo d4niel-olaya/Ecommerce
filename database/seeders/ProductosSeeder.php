@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Productos;
+use Database\Factories\ProductosFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,12 +16,7 @@ class ProductosSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $producto = new Productos();
-        $producto -> nombre = 'Noxpirin';
-        $producto -> uso = 'Oral';
-        $producto -> img = 'noxpirin.jpg';
-        $producto -> cantidad = 10;
-        $producto -> save();
+        Productos::factory(10)->create();
+        
     }
 }

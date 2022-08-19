@@ -17,7 +17,10 @@ class ProductosFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre' => $this -> faker -> word(),
+            'uso' => 'Oral',
+            'img' => $this -> faker -> word(),
+            'cantidad' => $this -> faker -> randomDigitNotNull(),
         ];
     }
 }

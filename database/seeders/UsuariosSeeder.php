@@ -16,8 +16,6 @@ class UsuariosSeeder extends Seeder
     public function run()
     {
         //
-        $usuario = new Usuarios();
-        $usuario -> nombre = 'Juan';
-        $usuario -> save();
+        Usuarios::factory(10)->create();
     }
 }
