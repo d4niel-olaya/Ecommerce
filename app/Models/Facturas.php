@@ -14,6 +14,11 @@ class Facturas extends Model
         'id_producto',
         'id_orden'
     ];
-
+    public function Productos(){
+        return $this -> belongsTo(Productos::class);
+    }
+    public function Ordenes(){
+        return $this -> belongsTo(Ordenes::class);
+    }
     // public function 
 }
