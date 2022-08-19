@@ -17,9 +17,9 @@ class ProductosFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this -> faker -> word(),
+            'nombre' => $nameProduct = $this -> faker -> randomElement(['Noxpirin', 'iboprifeno', 'Vitamina_C', 'Sal de frutas', 'Adbil max']),
             'uso' => 'Oral',
-            'img' => $this -> faker -> word(),
+            'img' => $nameProduct,
             'cantidad' => $this -> faker -> randomDigitNotNull(),
         ];
     }
