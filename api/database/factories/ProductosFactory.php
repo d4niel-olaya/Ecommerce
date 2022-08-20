@@ -19,7 +19,7 @@ class ProductosFactory extends Factory
         return [
             'nombre' => $nameProduct = $this -> faker -> randomElement(['Noxpirin', 'iboprifeno', 'Vitamina_C', 'Sal de frutas', 'Adbil max']),
             'uso' => 'Oral',
-            'img' => $nameProduct,
+            'img' => str_replace(' ','_',$nameProduct),
             'cantidad' => $this -> faker -> randomDigitNotNull(),
         ];
     }

@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(ProductosController::class)->group(function () {
-    Route::get('/productos', 'index');
+    Route::get('/productos', 'indexApi');
 });
