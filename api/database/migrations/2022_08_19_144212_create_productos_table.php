@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('uso');
             $table->string('img');
-            $table->integer('cantidad');
+            $table->integer('precio');
             $table->timestamps();
             $table->softDeletes();
         });

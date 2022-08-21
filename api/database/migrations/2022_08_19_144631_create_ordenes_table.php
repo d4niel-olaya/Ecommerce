@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('usuarios');
             $table->timestamp('fecha');
-            $table->float('valor');
+            $table->foreignId('id_producto')->constrained('productos');
+            $table->integer('cantidad');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -20,7 +20,7 @@ class ProductosFactory extends Factory
             'nombre' => $nameProduct = $this -> faker -> randomElement(['Noxpirin', 'iboprifeno', 'Vitamina_C', 'Sal de frutas', 'Adbil max']),
             'uso' => 'Oral',
             'img' => str_replace(' ','_',$nameProduct),
-            'cantidad' => $this -> faker -> randomDigitNotNull(),
+            'precio' => $this -> faker -> numberBetween(1,1500),
         ];
     }
 }

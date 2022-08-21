@@ -7,3 +7,14 @@ export async function getProducts(){
     }}).then(res=> res.json());
     return response;
 }
+
+export async function CreateOrder(data){
+    const response = await fetch(url+'orders/create', {
+        method:'POST',
+        body:JSON.stringify(data),
+        mode:'cors', headers:{
+            'Access-Control-Allow-Origin':'*',
+            'Content-type':'application/json'
+        }
+    }).then(res=> res.ok).then(data => console.log(data));
+}

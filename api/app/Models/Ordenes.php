@@ -13,7 +13,8 @@ class Ordenes extends Model
     protected $fillable = [
         'id_user',
         'fecha',
-        'valor',
+        'id_producto',
+        'cantidad'
     ];
 
     public function User(){

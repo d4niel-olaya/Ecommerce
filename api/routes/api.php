@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\OrdenesController;
 use App\Http\Controllers\ProductosController;
+use App\Models\Ordenes;
 use App\Models\Productos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Termwind\Components\Raw;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +25,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::controller(ProductosController::class)->group(function () {
     Route::get('/productos', 'indexApi');
+});
+
+Route::controller(OrdenesController::class)->group(function(){
+    Route::get('/orders', 'index');
+    Route::post('/orders/create', 'store');
+    Route::delete('/orders/del/{id}', 'destroy');
 });

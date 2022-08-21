@@ -16,24 +16,6 @@ class FacturasSeeder extends Seeder
     public function run()
     {
         //
-        $factura = new Facturas();
-        $factura -> id_producto = 1;
-        $factura -> id_orden = 1;
-        $factura -> save();
-
-        $factura = new Facturas();
-        $factura -> id_producto = 2;
-        $factura -> id_orden = 1;
-        $factura -> save();
-
-        $factura = new Facturas();
-        $factura -> id_producto = 3;
-        $factura -> id_orden = 1;
-        $factura -> save();
-
-        $factura = new Facturas();
-        $factura -> id_producto = 3;
-        $factura -> id_orden = 1;
-        $factura -> save();
+        
     }
 }
