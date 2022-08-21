@@ -1,10 +1,12 @@
 import Producto from './index.html?raw';
 
-const CreateProduct= ({id,nombre,uso,precio}) =>{
+const CreateProduct= ({id,nombre,uso,precio,img}) =>{
     return `<div class="card" id=${id}>
             <p>${nombre}</p>
             <p>${precio}</p>
             <p>${uso}</p>
+            <img src="../../img/${img}.jpg">
+            <p>${img}</p>
             <button class="btn">Add to cart</button></div>`;
 }
 
