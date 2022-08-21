@@ -4,10 +4,10 @@ export class ProductosRender{
         this.dom = dom;
         this.productos = productos;
     }
-    CreateProduct({id,nombre}){
-        return `<section>
-            <p>${id}</p>
+    CreateProduct({id,nombre,img}){
+        return `<section id="${id}">
             <p>${nombre}</p>
+            <img src="../img/${img}.jpg">
             <button>Add to cart</button>
         </section>`;
     }
@@ -16,10 +16,10 @@ export class ProductosRender{
         this.dom.innerHTML = arr;
     }
 
-    setAction(){
+    setAction(funcion , param){
         const btns = document.querySelectorAll('button');
         btns.forEach(e => {
-            e.addEventListener('click', () => {alert('a')})
+            e.addEventListener('click', () => {funcion(param)})
         })
     }
 }
