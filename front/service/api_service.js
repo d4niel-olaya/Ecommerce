@@ -18,3 +18,11 @@ export async function CreateOrder(data){
         }
     }).then(res=> res.ok).then(data => console.log(data));
 }
+
+export async function getOrders(){
+    const response = await fetch(url+'orders',   {mode: 'cors',
+    headers: {
+      'Access-Control-Allow-Origin':'*'
+    }}).then(res=> res.json());
+    return response;
+}
