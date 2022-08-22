@@ -26,12 +26,13 @@ class ProductosRender{
         const arr = this.productos.map(this.CreateProduct).join('');
         this.dom.innerHTML = arr;
     }
-
-    setAction(funcion , param){
-        const btns = document.querySelectorAll('button');
-        btns.forEach(e => {
-            e.addEventListener('click', () => {funcion(param)})
-        })
+    getTimeStamp(){
+        const time = new Date();
+        const format = new Date(time);
+        let date = format.toLocaleDateString();
+        let hour = format.toTimeString().slice(0,8);
+        const timestamp = date.split('/').reverse().join('-')+' '+hour;
+        return timestamp;
     }
 }
 

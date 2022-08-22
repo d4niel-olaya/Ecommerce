@@ -17,7 +17,10 @@
   box-sizing: border-box;
   border: none;
 }
-a {
+a{
+  display: inline-block;
+}
+.icon_header {
   /* font-weight: ; */
   color: white;
   font-size: 25px;
@@ -45,6 +48,18 @@ h1 {
 div .img{
   border: 1px solid;
   width: 100%;
+}
+.arrow{
+  position: relative;
+  font-size: 40px;
+}
+.banner .imgbanner{
+  width: 90%;
+}
+.banner{
+  display: flex;
+  align-items: center;
+  border: 1px solid;
 }
 .main{
   display: flex;

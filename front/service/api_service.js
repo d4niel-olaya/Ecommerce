@@ -9,7 +9,7 @@ class ApiService{
         return response;
     }
     static Create(route,data){
-        const response =fetch(this.url+route, {
+        const response = fetch(this.url+route, {
                 method:'POST',
                 body:JSON.stringify(data),
                 mode:'cors', headers:{
