@@ -1,14 +1,25 @@
 
-export class ProductosRender{
+class ProductosRender{
     constructor(dom, productos){
         this.dom = dom;
         this.productos = productos;
     }
-    CreateProduct({id,nombre,img}){
-        return `<section id="${id}">
-            <p>${nombre}</p>
-            <img src="../img/${img}.jpg">
-            <button>Add to cart</button>
+    CreateProduct({id,nombre,img, precio}){
+        return `<section id="${id}" class="producto">
+            <div>
+                <img src="../img/${img}.jpg" class="img">
+            </div>
+            <div class="detalles">
+                <div>
+                    <p>${nombre}</p>
+                    <p>${precio}</p>    
+                
+                </div>
+                <div class="buy">
+                    <input type="number" min="0" value="0" class="cantidad">
+                    <button class="add">Añadir al carrito</button>   
+                </div>
+            </div>
         </section>`;
     }
     render(){
@@ -23,3 +34,5 @@ export class ProductosRender{
         })
     }
 }
+
+export default ProductosRender

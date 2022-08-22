@@ -17,7 +17,9 @@ class FacturasFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_producto'=>$this->faker->randomElement([1,2,3]),
+            'id_orden'=>$this->faker->randomElement([1,2,3]),
+            'subtotal'=>$this->faker->randomDigitNotNull()
         ];
     }
 }

@@ -12,13 +12,15 @@ class Ordenes extends Model
     use SoftDeletes;
     protected $fillable = [
         'id_user',
-        'fecha',
         'id_producto',
-        'cantidad'
+        'fecha',
+        'status'
     ];
 
     public function User(){
         return $this ->hasOne(Usuarios::class);
     }
-
+    public function Factura(){
+        return $this ->hasMany(Facturas::class);
+    }
 }

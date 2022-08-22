@@ -11,10 +11,11 @@ class Facturas extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
+        'id_orden',
         'id_producto',
-        'id_orden'
+        'subtotal'
     ];
-    public function Productos(){
+    public function productos(){
         return $this -> belongsTo(Productos::class);
     }
     public function Ordenes(){

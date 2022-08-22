@@ -20,10 +20,10 @@ class OrdenesFactory extends Factory
         $time = $this -> faker -> time();
         return [
             'id_user'=> $this-> faker ->randomElement([1,2]),
+            // 'id_producto'=>$this->faker -> randomElement([1,2,3,4]),
             'fecha'=>$date,
-            'id_producto'=> $this -> faker -> randomElement([1,2,3,4]),
-            'cantidad'=>$this -> faker -> numberBetween(1,100),
-
+            'estado'=>$this->faker -> randomElement([1,2]),
+            
         ];
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\FacturasController;
 use App\Http\Controllers\OrdenesController;
 use App\Http\Controllers\ProductosController;
+use App\Models\Facturas;
 use App\Models\Ordenes;
 use App\Models\Productos;
 use Illuminate\Http\Request;
@@ -31,4 +33,10 @@ Route::controller(OrdenesController::class)->group(function(){
     Route::get('/orders', 'index');
     Route::post('/orders/create', 'store');
     Route::delete('/orders/del/{id}', 'destroy');
+});
+
+
+Route::controller(FacturasController::class)->group(function(){
+    Route::get('/facturas', 'index');
+    Route::post('/facturas/create', 'store');
 });

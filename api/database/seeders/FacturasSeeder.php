@@ -16,6 +16,6 @@ class FacturasSeeder extends Seeder
     public function run()
     {
         //
-        
+        Facturas::factory(5)->create();
     }
 }

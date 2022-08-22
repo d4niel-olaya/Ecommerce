@@ -16,6 +16,6 @@ class OrdenesSeeder extends Seeder
     public function run()
     {
         //
-        Ordenes::factory(2)->create();
+        Ordenes::factory(5)->create();
     }
 }

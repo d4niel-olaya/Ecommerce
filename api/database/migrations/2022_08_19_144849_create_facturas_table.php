@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('id_producto')->constrained('productos');
-            // $table->foreignId('id_orden')->constrained('ordenes');
+            $table->foreignId('id_orden')->constrained('ordenes');
+            $table->foreignId('id_producto')->constrained('productos');
+            $table->double('subtotal', 10,3);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

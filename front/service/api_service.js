@@ -1,5 +1,5 @@
 
-export class ApiService{
+class ApiService{
     static url = 'http://localhost:8000/api/';
     static getElements(elements){
         const response = fetch(this.url+elements,   {mode: 'cors',
@@ -36,3 +36,4 @@ export class ApiService{
     //     return response;
     //     }
 }
+export default ApiService;
