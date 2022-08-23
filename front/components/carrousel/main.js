@@ -1,4 +1,4 @@
-
+import '../../style.css';
 
 class Carrousel{
     constructor(dom){

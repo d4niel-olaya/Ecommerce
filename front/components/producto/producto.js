@@ -1,4 +1,4 @@
-
+import '../../style.css'
 class ProductosRender{
     constructor(dom, productos){
         this.dom = dom;

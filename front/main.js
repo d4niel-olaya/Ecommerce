@@ -7,6 +7,8 @@ import Carrousel from './components/carrousel/main';
 // import ProductosRender from './components/producto/producto';
 const url = new URL(window.location);
 const params = new URLSearchParams(url.search);
+const mainC = document.getElementById('app');
+console.log(mainC.clientWidth);
 const app = document.getElementById('main');
 const carrito = document.getElementById('carrito');
 const banner = document.getElementById('banner');
