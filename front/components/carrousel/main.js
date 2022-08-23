@@ -6,9 +6,13 @@ class Carrousel{
     }
     CreateBanner(){
         return `
-            <a class="arrow right"><i class="fa-solid fa-arrow-left"></i></a>
-            <img src="../../img/banner.jpg" class="imgbanner">
-            <a class="arrow left"><i class="fa-solid fa-arrow-right"></i></a>
+            <div class="ctn-img">
+                <img src="../../img/banner.jpg" class="imgbanner">
+            </div>
+            <div class="container-carrousel">
+                <a class="arrow right"><i class="fa-solid fa-arrow-left"></i></a>
+                <a class="arrow left"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
         `
     }
 

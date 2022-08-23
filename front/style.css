@@ -109,8 +109,50 @@ body .app{
   font-size: 1.2em;
 }
 
+.banner{
+  position: relative;
+  max-width: 100vw;
+  max-height: 100px;
+  overflow: hidden;
+}
+.banner .ctn-img{
+  width: 100%;
+  height: 100%;
+}
+
+.banner .ctn-img .imgbanner{
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner .container-carrousel{
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
+/* .banner .container-carrousel{
+  position: relative;
+  width: 100%;
+}
+.banner .container-carrousel .imgbanner{
+  width: 100%;
+}
+.banner .container-carrousel .arrow{
+  position: absolute;
+  top: 20px;
+}
+
+.banner .container-carrousel .arrow .left{
+  left: 0;
+  transform: translateY(100px);
+} */
 
 /* .producto{
   display: flex;
