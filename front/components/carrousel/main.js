@@ -10,8 +10,8 @@ class Carrousel{
                 <img src="../../img/banner.jpg" class="imgbanner">
             </div>
             <div class="container-carrousel">
-                <a class="arrow right"><i class="fa-solid fa-arrow-left"></i></a>
-                <a class="arrow left"><i class="fa-solid fa-arrow-right"></i></a>
+                <a class="arrow"><i class="fa-solid fa-arrow-left"></i></a>
+                <a class="arrow"><i class="fa-solid fa-arrow-right"></i></a>
             </div>
         `
     }
