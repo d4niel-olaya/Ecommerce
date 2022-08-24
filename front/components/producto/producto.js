@@ -14,7 +14,7 @@ class ProductosRender{
                 
                 </div>
                 <div class="buy">
-                    <input type="number" min="0" value="0" class="amount">
+                    <input type="number" min="1" value="1" class="amount">
                     <button class="add">Añadir al carrito</button>   
                 </div>
             </div>
