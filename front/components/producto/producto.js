@@ -6,17 +6,15 @@ class ProductosRender{
     }
     CreateProduct({id,nombre,img, precio}){
         return `<section id="${id}" class="producto">
-            <div>
                 <img src="../img/${img}.jpg" class="img">
-            </div>
             <div class="detalles">
                 <div>
-                    <p>${nombre}</p>
-                    <p>${precio}</p>    
+                    <h3 class="name">${nombre}</h3>
+                    <h4 class="price">$${precio}</h4>    
                 
                 </div>
                 <div class="buy">
-                    <input type="number" min="0" value="0" class="cantidad">
+                    <input type="number" min="0" value="0" class="amount">
                     <button class="add">Añadir al carrito</button>   
                 </div>
             </div>

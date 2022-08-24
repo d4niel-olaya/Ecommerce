@@ -4,6 +4,7 @@
 
   font-size: 16px;
   --navbar:#009245;
+  --precio:
   
 }
 
@@ -42,7 +43,6 @@ body .app{
 }
 .app {
   max-width: 1920px;
-  background-color: red;
   /* font-family: 'Commissioner', sans-serif; */
   /* position: relative; */
 }
@@ -112,7 +112,7 @@ body .app{
 .banner{
   position: relative;
   max-width: 100vw;
-  max-height: 100px;
+  max-height: 200px;
   overflow: hidden;
 }
 .banner .ctn-img{
@@ -135,8 +135,41 @@ body .app{
   justify-content: space-between;
   align-items: center;
 }
+.main{
+  max-width: 100vw;
+}
 
 
+.main .producto{
+  width:100%;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.main .producto .detalles{
+  width: 100%;
+  text-align: center;
+}
+.main .producto .img{
+  width: 60%;
+  object-fit: cover;
+}
+
+.price{
+  color: #009245;
+  font-size: 1em;
+}
+.add{
+  padding: 1em;
+  background-color: #009245;
+  color: white;
+}
+
+.amount{
+  padding: 0.8em;
+  text-align: left;
+}
 /* .banner .container-carrousel{
   position: relative;
   width: 100%;

@@ -16,7 +16,7 @@ const productos = await ApiService.getElements('productos');
 const Rendering = new ProductosRender(app,productos);
 const Medicamentos = new Carrousel(banner);
 Medicamentos.Render();
-// Rendering.render();
+Rendering.render();
 
 const btns = document.querySelectorAll('button');
         btns.forEach(e => {
