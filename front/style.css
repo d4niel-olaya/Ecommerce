@@ -4,7 +4,7 @@
 
   font-size: 16px;
   --navbar:#009245;
-  --precio:
+  --modal-bg:rgba(0,0,0, 0.8);
   
 }
 
@@ -171,69 +171,24 @@ body .app{
   text-align: left;
   border:1px solid black;
 }
-/* .banner .container-carrousel{
-  position: relative;
-  width: 100%;
-}
-.banner .container-carrousel .imgbanner{
-  width: 100%;
-}
-.banner .container-carrousel .arrow{
-  position: absolute;
-  top: 20px;
-}
 
-.banner .container-carrousel .arrow .left{
-  left: 0;
-  transform: translateY(100px);
-} */
-
-/* .producto{
+.modal{
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  border: 1px solid black;
-  text-align: center;
-  width: 40%;
-} */
-
-/* div .img{
-  border: 1px solid;
-  width: 100%;
-}
-.arrow{
-  position: relative;
-  font-size: 40px;
-}
-.banner .imgbanner{
-  width: 90%;
-}
-.banner{
-  display: flex;
+  justify-content: center;
   align-items: center;
-  border: 1px solid;
-}
-.main{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: var(--modal-bg);
 }
 
-.add{
-  background-color:var(--navbar);
-  padding: 1em;
-  border-radius: 0.5em;
-  color:white;
+.modal .content-modal{
+  width: 50%;
+  height: 50vh;
+  background-color: white;
 }
 
-.detalles{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.buy{
-  display: grid;
-  grid-template-columns: 50% 50%;
-} */
 
 
 @media (min-width:768px){
@@ -295,6 +250,10 @@ body .app{
   .main .producto .img{
     width: 30%;
     object-fit: cover;
+  }
+
+  .price{
+    text-align: center;
   }
   .buy{
     text-align: center;
