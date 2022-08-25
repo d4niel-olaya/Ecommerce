@@ -13,7 +13,10 @@ class OrdenesController extends Controller
         $ordenes = Ordenes::all();
         return $ordenes;
     }
-
+    public function last(){
+        $orden = Ordenes::max('id');
+        return $orden;
+    }
     public function store(Request $request){
         try{
             $request -> validate([

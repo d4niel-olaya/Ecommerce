@@ -5,17 +5,17 @@ class ProductosRender{
         this.productos = productos;
     }
     CreateProduct({id,nombre,img, precio}){
-        return `<section id="${id}" class="producto">
+        return `<section class="producto">
                 <img src="../img/${img}.jpg" class="img">
             <div class="detalles">
                 <div>
                     <h3 class="name">${nombre}</h3>
                     <h4 class="price">$${precio}</h4>    
-                
+                    <a href="?id=${id}">Ver detalles</a>
                 </div>
                 <div class="buy">
                     <input type="number" min="1" value="1" class="amount">
-                    <button class="add">Añadir al carrito</button>   
+                    <button class="add" id="${id}">Añadir al carrito</button>   
                 </div>
             </div>
         </section>`;

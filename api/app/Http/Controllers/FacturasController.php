@@ -17,11 +17,13 @@ class FacturasController extends Controller
         try{
             $request -> validate([
                 'id_producto'=>'required',
-                'id_orden'=>'required'
+                'id_orden'=>'required',
+                'subtotal'=>'required'
             ]);
             $orden = Facturas::create([
                 'id_producto'=>$request->id_producto,
                 'id_orden'=>$request -> id_orden,   
+                'subtotal'=>$request->subtotal
             ]);
         }
         catch(Exception $e){

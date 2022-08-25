@@ -26,11 +26,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(ProductosController::class)->group(function () {
-    Route::get('/productos', 'indexApi');
+    Route::get('/productos', 'index');
+    Route::get('/productos/{id}', 'getByid');
+    Route::get('/detalles/{id}', 'details');
 });
 
 Route::controller(OrdenesController::class)->group(function(){
     Route::get('/orders', 'index');
+    Route::get('/orders/last', 'last');
     Route::post('/orders/create', 'store');
     Route::delete('/orders/del/{id}', 'destroy');
 });
