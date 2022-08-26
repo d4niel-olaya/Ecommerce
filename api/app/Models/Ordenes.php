@@ -12,7 +12,6 @@ class Ordenes extends Model
     use SoftDeletes;
     protected $fillable = [
         'id_user',
-        'fecha',
     ];
 
     public function user(){

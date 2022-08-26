@@ -3,6 +3,7 @@
 import ApiService  from './service/api_service';
 import ProductosRender  from './components/producto/producto';
 import Carrousel from './components/carrousel/main';
+import Modal from '../front/components/modal/main.js';
 
 // import ProductosRender from './components/producto/producto';
 if(!localStorage.hasOwnProperty('orders')){
@@ -12,28 +13,46 @@ const url = new URL(window.location);
 const params = new URLSearchParams(url.search);
 const main = document.getElementById('main');
 const banner = document.getElementById('banner');
-import Modal from '../front/components/modal/main.js';
 const menuMobile = document.getElementById('mobile');
 const btn = document.getElementById('hamburguer');
 const closeMenu = document.getElementById('btnClose');
 const carrito = document.getElementById('cart');
 const modal = document.getElementById('modal');
-const ctnModal = document.getElementById('content-modal');
 const listado = await ApiService.getElements('facturas');
 const factura = document.getElementById('factura');
 const total = await ApiService.getElements('sum');
-const modalClass = new Modal(ctnModal,JSON.parse(localStorage.getItem('orders')));
-
+const lastOrderId= await ApiService.getElements('orders/last');
+console.log(lastOrderId);
 carrito.addEventListener('click', () =>{
 if(!modal.classList.contains('modal')){
     modal.classList.add('modal');
+    const ctnModal = document.getElementById('content-modal');
+    const modalClass = new Modal(ctnModal,JSON.parse(localStorage.getItem('orders')));
     modalClass.Renderind();
     factura.innerHTML = modalClass.Resumen;
     const buynow = document.getElementById('buynow');
+    // Boton de comprar ahora
     buynow.addEventListener('click', () =>{
         const items = JSON.parse(localStorage.getItem('orders'))
-        console.log(items);
+        if(items.length == 0){
+            alert('Tienes que agregar un producto');
+        }
+        else{
+
+            for(let i of items){
+                
+                let json = {id_producto:i['id'], id_orden:lastOrderId, subtotal:i['subtotal']};
+                ApiService.Create('facturas/create', json);
+                localStorage.clear();
+            }
+            ApiService.Create('orders/create', {id_user:1});
+            alert('Compra efectuada');
+            window.location.reload();
+        }
+        // console.log(items);
     })
+
+    // Resetear y cerrar modal
     const closeModal = document.getElementById('closeMdl');
     closeModal.addEventListener('click', () =>{
     modal.classList.remove('modal');
@@ -65,7 +84,7 @@ else{
     Medicamentos.Render();
     Rendering.render();
 }
-const lastOrderId= await ApiService.getElements('orders/last');
+
 const btns = document.querySelectorAll('.add');
 const amounts = document.querySelectorAll('.amount');
 btns.forEach((btn,i) =>{
@@ -82,6 +101,7 @@ btns.forEach((btn,i) =>{
         const orders = JSON.parse(localStorage.getItem('orders'));
         orders.push(data);
         localStorage.setItem('orders', JSON.stringify(orders));
+        alert('Producto agregado al carrito');
     
 
     })

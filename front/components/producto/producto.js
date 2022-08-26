@@ -5,7 +5,7 @@ class ProductosRender{
         this.productos = productos;
     }
     CreateProduct({id,nombre,img, precio}){
-        return `<section class="producto">
+        return `<article class="producto">
                 <img src="../img/${img}.jpg" class="img">
             <div class="detalles">
                 <div>
@@ -18,19 +18,11 @@ class ProductosRender{
                     <button class="add" id="${id}">Añadir al carrito</button>   
                 </div>
             </div>
-        </section>`;
+        </article>`;
     }
     render(){
         const arr = this.productos.map(this.CreateProduct).join('');
         this.dom.innerHTML = arr;
-    }
-    getTimeStamp(){
-        const time = new Date();
-        const format = new Date(time);
-        let date = format.toLocaleDateString();
-        let hour = format.toTimeString().slice(0,8);
-        const timestamp = date.split('/').reverse().join('-')+' '+hour;
-        return timestamp;
     }
 }
 

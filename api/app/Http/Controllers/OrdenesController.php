@@ -22,15 +22,13 @@ class OrdenesController extends Controller
             $request -> validate([
                 'id_user'=>'required',
                 // 'id_producto'=>'required',
-                'fecha'=>'required',
-                'estado'=>'required'
             ]);
             $orden = Ordenes::create([
                 'id_user'=>$request->id_user,
                 // 'id_producto'=>$request->id_producto,
-                'fecha'=>$request -> fecha,
-                'estado'=> $request -> estado
             ]);
+
+
         }
         catch(Exception $e){
             return response() ->json([

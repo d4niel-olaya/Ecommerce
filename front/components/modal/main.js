@@ -9,20 +9,23 @@ class Modal{
     }
 
     get Total(){
-        let total = 0;
-        this.productos.forEach(element => {
-            total+=element.subtotal;
-        });
-        return total;
+        if(!this.productos.length == 0){
+            let total = 0;
+            this.productos.forEach(element => {
+                total+=element.subtotal;
+            });
+            return total;
+        }
+        return 0;
     }
     CreateItem({id,nombre,subtotal, img}){
-        return `<section class="modal-item">
+        return `<article class="modal-item">
                     <img src="../../img/${img}.jpg">
                     <div class"buy-details">
                         <p>${nombre}</p>
                         <p class="price">$${subtotal}</p>
                     </div>
-                </section>`
+                </article>`
     }
     Renderind(){
         const arr = this.productos.map(this.CreateItem).join('');
@@ -39,7 +42,7 @@ class Modal{
                 <button class="show-more">Seguir viendo</button>`;
     }
     get ModalTemp(){
-        return '<a id="closeMdl">X</a>';
+        return '<a id="closeMdl" style="">X</a>';
     }
 }
 
