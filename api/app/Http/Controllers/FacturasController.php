@@ -17,7 +17,10 @@ class FacturasController extends Controller
         ->select('productos.nombre', 'facturas.subtotal', 'productos.img')->get();
         return $facturas;
     }
-
+    public function amount(){
+        $amount = Facturas::all()->sum('subtotal');
+        return $amount;
+    }
     public function store(Request $request){
         try{
             $request -> validate([

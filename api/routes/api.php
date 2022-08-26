@@ -41,5 +41,6 @@ Route::controller(OrdenesController::class)->group(function(){
 
 Route::controller(FacturasController::class)->group(function(){
     Route::get('/facturas', 'index');
+    Route::get('/sum', 'amount');
     Route::post('/facturas/create', 'store');
 });

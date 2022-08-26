@@ -17,15 +17,19 @@ const carrito = document.getElementById('cart');
 const modal = document.getElementById('modal');
 const ctnModal = document.getElementById('content-modal');
 const listado = await ApiService.getElements('facturas');
-const modalClass = new Modal(ctnModal,listado);
+const factura = document.getElementById('factura');
+const total = await ApiService.getElements('sum');
+const modalClass = new Modal(ctnModal,listado, total);
 carrito.addEventListener('click', () =>{
 if(!modal.classList.contains('modal')){
     modal.classList.add('modal');
     modalClass.Renderind();
+    factura.innerHTML = modalClass.Resumen;
     const closeModal = document.getElementById('closeMdl');
     closeModal.addEventListener('click', () =>{
     modal.classList.remove('modal');
     ctnModal.innerHTML = '';
+    factura.innerHTML = '';
     })
 }
 })
