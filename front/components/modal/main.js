@@ -1,11 +1,19 @@
 import ProductosRender from "../producto/producto";
 
 class Modal{
-    constructor(dom,productos, total){
+    constructor(dom,productos){
         this.dom = dom;
         this.productos = productos;
-        this.total = total;
-        this.iva = (total*0.21)
+        this.total = this.Total;
+        this.iva = this.total * 0.21
+    }
+
+    get Total(){
+        let total = 0;
+        this.productos.forEach(element => {
+            total+=element.subtotal;
+        });
+        return total;
     }
     CreateItem({id,nombre,subtotal, img}){
         return `<section class="modal-item">
@@ -24,10 +32,10 @@ class Modal{
         return `<h2>Resumen de tu carrito</h2>
                 <div style="text-align:center">
                     <h3>Subtotal : ${this.total}</h3>
-                    <h3>Iva : ${this.iva}</h3>
+                    <h3>Iva : ${Math.floor(this.iva)}</h3>
                     <h3>Total : ${this.total - this.iva}</h3>
                 </div>
-                <button class="add">Comprar ahora</button>
+                <button class="add" id="buynow">Comprar ahora</button>
                 <button class="show-more">Seguir viendo</button>`;
     }
     get ModalTemp(){

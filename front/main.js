@@ -22,12 +22,18 @@ const ctnModal = document.getElementById('content-modal');
 const listado = await ApiService.getElements('facturas');
 const factura = document.getElementById('factura');
 const total = await ApiService.getElements('sum');
-const modalClass = new Modal(ctnModal,listado, total);
+const modalClass = new Modal(ctnModal,JSON.parse(localStorage.getItem('orders')));
+
 carrito.addEventListener('click', () =>{
 if(!modal.classList.contains('modal')){
     modal.classList.add('modal');
     modalClass.Renderind();
     factura.innerHTML = modalClass.Resumen;
+    const buynow = document.getElementById('buynow');
+    buynow.addEventListener('click', () =>{
+        const items = JSON.parse(localStorage.getItem('orders'))
+        console.log(items);
+    })
     const closeModal = document.getElementById('closeMdl');
     closeModal.addEventListener('click', () =>{
     modal.classList.remove('modal');
@@ -66,9 +72,12 @@ btns.forEach((btn,i) =>{
     btn.addEventListener('click', () =>{
         const padre = btn.parentElement.parentElement;
         const info = padre.childNodes[1];
+        const nombre = info.childNodes[1].textContent;
         const precio = info.childNodes[3].textContent.slice(1);
+        const imagen = nombre.replaceAll(' ','_');
         const stotal = parseInt(precio) * parseInt(amounts[i].value)
-        const data = {id_orden:lastOrderId, id_producto:btn.id, subtotal:stotal};
+        // const data = {id_orden:lastOrderId, id_producto:btn.id, subtotal:stotal};
+        const data = {id:btn.id, nombre:nombre, subtotal:stotal, img:imagen};
         amounts[i].value = '1';
         const orders = JSON.parse(localStorage.getItem('orders'));
         orders.push(data);
@@ -77,6 +86,7 @@ btns.forEach((btn,i) =>{
 
     })
 })
+
 
 
 
