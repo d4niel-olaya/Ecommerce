@@ -12,9 +12,7 @@ class Ordenes extends Model
     use SoftDeletes;
     protected $fillable = [
         'id_user',
-        // 'id_producto',
         'fecha',
-        'estado'
     ];
 
     public function user(){

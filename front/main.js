@@ -5,6 +5,9 @@ import ProductosRender  from './components/producto/producto';
 import Carrousel from './components/carrousel/main';
 
 // import ProductosRender from './components/producto/producto';
+if(!localStorage.hasOwnProperty('orders')){
+    localStorage.setItem('orders', '[]');
+}
 const url = new URL(window.location);
 const params = new URLSearchParams(url.search);
 const main = document.getElementById('main');
@@ -58,13 +61,20 @@ else{
 }
 const lastOrderId= await ApiService.getElements('orders/last');
 const btns = document.querySelectorAll('.add');
-btns.forEach(btn =>{
+const amounts = document.querySelectorAll('.amount');
+btns.forEach((btn,i) =>{
     btn.addEventListener('click', () =>{
         const padre = btn.parentElement.parentElement;
         const info = padre.childNodes[1];
         const precio = info.childNodes[3].textContent.slice(1);
-        const data = {id_orden:lastOrderId, id_producto:btn.id, subtotal:precio};
-        ApiService.Create('facturas/create', data);
+        const stotal = parseInt(precio) * parseInt(amounts[i].value)
+        const data = {id_orden:lastOrderId, id_producto:btn.id, subtotal:stotal};
+        amounts[i].value = '1';
+        const orders = JSON.parse(localStorage.getItem('orders'));
+        orders.push(data);
+        localStorage.setItem('orders', JSON.stringify(orders));
+    
+
     })
 })
 
