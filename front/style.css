@@ -180,14 +180,32 @@ body .app{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--modal-bg);
+  background: var(--modal-bg);  
 }
 
 .modal .content-modal{
   width: 50%;
   height: 50vh;
   background-color: white;
+  overflow: auto;
+
 }
+
+.modal .content-modal .modal-item{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 1rem;
+
+}
+
+.content-modal .modal-item img{
+  width: 20%;
+  object-fit: cover;
+}
+
+
 
 
 

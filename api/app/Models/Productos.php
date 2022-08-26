@@ -17,7 +17,7 @@ class Productos extends Model
         'precio'
     ];
 
-    public function Factura(){
+    public function facturas(){
         return $this->hasMany(Facturas::class);
     }
 }

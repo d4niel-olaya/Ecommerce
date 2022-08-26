@@ -18,7 +18,7 @@ class Facturas extends Model
     public function productos(){
         return $this -> belongsTo(Productos::class);
     }
-    public function Ordenes(){
+    public function ordenes(){
         return $this -> belongsTo(Ordenes::class);
     }
     // public function 

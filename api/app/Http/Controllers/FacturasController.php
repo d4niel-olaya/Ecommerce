@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Facturas;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class FacturasController extends Controller
 {
     public function index(){
-        $ordenes = Facturas::all();
-        return $ordenes;
+        $facturas = DB::table('facturas')->
+        join('ordenes', 'ordenes.id', '=', 'facturas.id_orden')->
+        join('productos', 'productos.id', '=', 'facturas.id_producto')
+        ->select('productos.nombre', 'facturas.subtotal', 'productos.img')->get();
+        return $facturas;
     }
+
     public function store(Request $request){
         try{
             $request -> validate([

@@ -17,10 +17,10 @@ class Ordenes extends Model
         'estado'
     ];
 
-    public function User(){
+    public function user(){
         return $this ->hasOne(Usuarios::class);
     }
-    public function Factura(){
+    public function facturas(){
         return $this ->hasMany(Facturas::class);
     }
 }

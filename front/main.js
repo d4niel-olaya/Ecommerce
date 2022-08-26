@@ -8,8 +8,35 @@ import Carrousel from './components/carrousel/main';
 const url = new URL(window.location);
 const params = new URLSearchParams(url.search);
 const main = document.getElementById('main');
-const carrito = document.getElementById('carrito');
 const banner = document.getElementById('banner');
+import Modal from '../front/components/modal/main.js';
+const menuMobile = document.getElementById('mobile');
+const btn = document.getElementById('hamburguer');
+const closeMenu = document.getElementById('btnClose');
+const carrito = document.getElementById('cart');
+const modal = document.getElementById('modal');
+const ctnModal = document.getElementById('content-modal');
+const listado = await ApiService.getElements('facturas');
+const modalClass = new Modal(ctnModal,listado);
+carrito.addEventListener('click', () =>{
+if(!modal.classList.contains('modal')){
+    modal.classList.add('modal');
+    modalClass.Renderind();
+    const closeModal = document.getElementById('closeMdl');
+    closeModal.addEventListener('click', () =>{
+    modal.classList.remove('modal');
+    ctnModal.innerHTML = '';
+    })
+}
+})
+btn.addEventListener('click', () =>{
+if(menuMobile.classList.contains('closed')){
+    menuMobile.classList.remove('closed');
+}
+})
+closeMenu.addEventListener('click', () =>{
+menuMobile.classList.add('closed');
+})
 // const productos = await ApiService.getElements('productos');
 if(params.has('id')){
     const id = params.get('id');
